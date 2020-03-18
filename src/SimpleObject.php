@@ -20,8 +20,7 @@ class SimpleObject implements Arrayble, Jsonable, \IteratorAggregate {
     private $attributes = [];
 
     /**
-     *  constructor.
-     * @param array $data
+     * @param iterable $attributes
      */
     public function __construct(iterable $attributes) {
         foreach ($attributes as $attr => $value){
