@@ -20,6 +20,7 @@ class SimpleObject implements Arrayble, Jsonable, \IteratorAggregate {
     private $attributes = [];
 
     /**
+     * SimpleObject constructor
      * @param iterable $attributes
      */
     public function __construct(iterable $attributes) {
@@ -41,7 +42,7 @@ class SimpleObject implements Arrayble, Jsonable, \IteratorAggregate {
      * @param $value
      */
     public function __set($name, $value) {
-        $this->data[$name] = $value;
+        $this->attributes[$name] = $value;
     }
 
     /**
