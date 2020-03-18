@@ -17,17 +17,25 @@ class SimpleObject implements Arrayble, Jsonable, \IteratorAggregate {
     /**
      * @var array
      */
-    private $data = [];
+    private $attributes = [];
 
     /**
      *  constructor.
      * @param array $data
      */
-    public function __construct(iterable $data) {
-        foreach ($data as $k => $v){
-            $this->data[$k] = $v;
+    public function __construct(iterable $attributes) {
+        foreach ($attributes as $attr => $value){
+            $this->attributes[$attr] = $value;
         }
     }
+    
+    /**
+     * @return string
+     */
+    public function __toString() : string {
+        return $this->toJson();
+    }
+
 
     /**
      * @param $name
@@ -78,8 +86,8 @@ class SimpleObject implements Arrayble, Jsonable, \IteratorAggregate {
     /**
      * @return \Traversable|void
      */
-    public function getIterator() {
-        return new \ArrayIterator($this->data);
+    public function getIterator() : \ArrayIterator {
+        return new \ArrayIterator($this->attributes);
     }
     
 }
