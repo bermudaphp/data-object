@@ -33,9 +33,8 @@ class SimpleObject implements Arrayble, Jsonable, \IteratorAggregate {
      * @return string
      */
     public function __toString() : string {
-        return $this->toJson();
+        return $this->toJson(JSON_THROW_ON_ERROR);
     }
-
 
     /**
      * @param $name
@@ -50,7 +49,7 @@ class SimpleObject implements Arrayble, Jsonable, \IteratorAggregate {
      * @return mixed|null
      */
     public function __get($name) {
-        return $this->data[$name] ?? null ;
+        return $this->attributes[$name] ?? null ;
     }
 
     /**
@@ -58,21 +57,21 @@ class SimpleObject implements Arrayble, Jsonable, \IteratorAggregate {
      * @return bool
      */
     public function __isset($name) : bool {
-        return array_key_exists($name, $this->data);
+        return array_key_exists($name, $this->attributes);
     }
 
     /**
      * @param $name
      */
     public function __unset($name) {
-        unset($this->data[$name]);
+        unset($this->attributes[$name]);
     }
 
     /**
      * @return array
      */
     public function toArray(): array {
-        return $this->data;
+        return $this->attributes;
     }
 
     /**
@@ -80,11 +79,11 @@ class SimpleObject implements Arrayble, Jsonable, \IteratorAggregate {
      * @return string
      */
     public function toJson(int $options = 0): string {
-        return json_encode($this->data, $options);
+        return json_encode($this->attributes, $options);
     }
 
     /**
-     * @return \Traversable|void
+     * @return \ArrayIterator
      */
     public function getIterator() : \ArrayIterator {
         return new \ArrayIterator($this->attributes);
