@@ -31,6 +31,7 @@ class SimpleObject implements Arrayble, Jsonable, \IteratorAggregate {
     
     /**
      * @return string
+     * @throws \JsonException
      */
     public function __toString() : string {
         return $this->toJson(JSON_THROW_ON_ERROR);
