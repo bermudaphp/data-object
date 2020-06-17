@@ -8,7 +8,7 @@ $object = _object(['name' => 'Sarah', 'age' => 25]);
 ```
 # Get property
 ```php
-$name = $object->name // Sarah;
+$name = $object->name; // Sarah;
 $sex = $object->get('sex', 'woman'); // woman
 ```
 # Iteration
