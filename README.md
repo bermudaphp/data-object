@@ -2,26 +2,34 @@
 ```bash
 composer require lobster-php/data-object
 ```
-# Usage
+# Create
 ```php
-$object = new DataObject(['name' => 'Sarah', 'age' => 25]);
-
-echo $object->name // Sarah;
-
-echo $object->get('sex', 'woman'); // woman
-
+$object = _object(['name' => 'Sarah', 'age' => 25]);
+```
+# Get property
+```php
+$name = $object->name // Sarah;
+$sex = $object->get('sex', 'woman'); // woman
+```
+# Iteration
+```php
 foreach($object as $name => $value)
 {
-    // iteration logick
+    echo 'property name: ' . $name . 'property value: ' . $value ;
 }
-
+```
+# Exist property
+```php
+isset($object->name); // true
 $object->has('sex'); // false
-
+```
+# Set property
+```php
 $object->sex = 'woman';
-
-$object->has('sex'); // true
-
+$object->set('sex', 'woman');
+```
+# Remove property
+```php
+unset($object->sex);
 $object->remove('sex');
-
-$object->has('sex'); // false
 ```
