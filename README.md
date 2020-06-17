@@ -1,10 +1,10 @@
 # Install
 ```bash
-composer require lobster-php/simple-object
+composer require lobster-php/data-object
 ```
 # Usage
 ```php
-$object = new SimpleObject(['name' => 'Sarah', 'age' => 25]);
+$object = new DataObject(['name' => 'Sarah', 'age' => 25]);
 
 echo $object->name // Sarah;
 
