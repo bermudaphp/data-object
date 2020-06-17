@@ -14,11 +14,7 @@ use Lobster\Reducible\Jsonable;
  */
 class SimpleObject implements Arrayble, Jsonable, \IteratorAggregate 
 {
-    
-    /**
-     * @var array
-     */
-    private $attributes = [];
+    private array $attributes = [];
 
     /**
      * SimpleObject constructor
