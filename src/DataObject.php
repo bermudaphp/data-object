@@ -17,7 +17,7 @@ class DataObject implements Arrayble, Jsonable, \IteratorAggregate
     private array $attributes = [];
 
     /**
-     * SimpleObject constructor
+     * DataObject constructor
      * @param iterable $attributes
      */
     public function __construct(iterable $attributes = [])
