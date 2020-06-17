@@ -9,10 +9,10 @@ use Lobster\Reducible\Jsonable;
 
 
 /**
- * Class SimpleObject
+ * Class DataObject
  * @package Lobster
  */
-class SimpleObject implements Arrayble, Jsonable, \IteratorAggregate 
+class DataObject implements Arrayble, Jsonable, \IteratorAggregate 
 {
     private array $attributes = [];
 
