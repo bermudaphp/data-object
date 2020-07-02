@@ -10,6 +10,7 @@
         ]
     },
     "require": {
-        "php": ">= 7.4"
+        "php": ">= 7.4",
+        "bermudaphp/enumerable": "^v1.0"
     }
 }
