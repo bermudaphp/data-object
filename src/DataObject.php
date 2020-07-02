@@ -12,7 +12,7 @@ use Bermuda\Enumerable\Arrayble;
  * Class DataObject
  * @package Bermuda\DataObject
  */
-class DataObject implements Arrayble, Jsonable, \IteratorAggregate 
+class DataObject implements Arrayable, Jsonable, \IteratorAggregate 
 {
     private array $attributes = [];
 
