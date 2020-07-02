@@ -1,6 +1,6 @@
 # Install
 ```bash
-composer require lobster-php/data-object
+composer require bermudaphp/data-object
 ```
 # Create
 ```php
