@@ -1,16 +1,16 @@
 <?php
 
 
-namespace Lobster;
+namespace Bermuda\DataObject;
 
 
-use Lobster\Reducible\Arrayble;
-use Lobster\Reducible\Jsonable;
+use Bermuda\String\Jsonable;
+use Bermuda\Enumerable\Arrayble;
 
 
 /**
  * Class DataObject
- * @package Lobster
+ * @package Bermuda\DataObject
  */
 class DataObject implements Arrayble, Jsonable, \IteratorAggregate 
 {
@@ -32,7 +32,7 @@ class DataObject implements Arrayble, Jsonable, \IteratorAggregate
      * @return string
      * @throws \JsonException
      */
-    public function __toString() : string 
+    public function __toString(): string 
     {
         return $this->toJson();
     }
@@ -79,7 +79,7 @@ class DataObject implements Arrayble, Jsonable, \IteratorAggregate
      * @param string $name
      * @return bool
      */
-    public function has(string $name) : bool 
+    public function has(string $name): bool 
     {
         return array_key_exists($name, $this->attributes);
     }
@@ -88,7 +88,7 @@ class DataObject implements Arrayble, Jsonable, \IteratorAggregate
      * @param string $name
      * @return bool
      */
-    public function remove(string $name) : void
+    public function remove(string $name): void
     {
         unset($this->attributes[$name]);
     }
@@ -97,7 +97,7 @@ class DataObject implements Arrayble, Jsonable, \IteratorAggregate
      * @param string $name
      * @return bool
      */
-    public function __isset(string $name) : bool 
+    public function __isset(string $name): bool 
     {
         return $this->has($name);
     }
@@ -131,7 +131,7 @@ class DataObject implements Arrayble, Jsonable, \IteratorAggregate
     /**
      * @return \ArrayIterator
      */
-    public function getIterator() : \ArrayIterator 
+    public function getIterator(): \ArrayIterator 
     {
         return new \ArrayIterator($this->attributes);
     }
