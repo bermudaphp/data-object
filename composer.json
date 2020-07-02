@@ -1,9 +1,9 @@
 {
-    "name": "lobster-php/data-object",
+    "name": "bermudaphp/data-object",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Lobster\\": "src/"
+            "Bermuda\DataObject\\": "src/"
         },
         "files": [
             "src/helper.php"
