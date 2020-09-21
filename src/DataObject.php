@@ -4,8 +4,8 @@
 namespace Bermuda\DataObject;
 
 
+use Bermuda\Arrayble;
 use Bermuda\String\Jsonable;
-use Bermuda\Enumerable\Arrayble;
 
 
 /**
