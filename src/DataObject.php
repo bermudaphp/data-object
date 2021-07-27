@@ -1,12 +1,9 @@
 <?php
 
-
 namespace Bermuda\DataObject;
-
 
 use Bermuda\Arrayble;
 use Bermuda\String\Jsonable;
-
 
 /**
  * Class DataObject
