@@ -4,32 +4,35 @@ composer require bermudaphp/data-object
 ```
 # Create
 ```php
-$object = new DataObj(['name' => 'Sarah', 'age' => 25]);
+$obj = new DataObj(['name' => 'Sarah', 'age' => 25]);
 ```
 # Get property
 ```php
-$name = $object->name; // Sarah;
-$sex = $object->get('sex', 'woman'); // woman
+$name = $obj->name; // Sarah;
+$sex = $obj->get('sex', 'woman'); // woman
+$name = $obj['name']; // Sarah
 ```
 # Iteration
 ```php
-foreach($object as $name => $value)
-{
-    echo 'property name: ' . $name . 'property value: ' . $value ;
-}
+foreach($obj as $name => $value) echo 'property name: ' . $name . 'property value: ' . $value ;
 ```
 # Exist property
 ```php
 isset($object->name); // true
-$object->has('sex'); // false
+$obj->has('name'); // true
+isset($obj['name']) // true
+$obj->offsetExists('name') // true
 ```
 # Set property
 ```php
-$object->sex = 'woman';
-$object->set('sex', 'woman');
+$obj->sex = 'woman';
+$obj->set('sex', 'woman');
+$obj['sex'] = 'woman';
 ```
 # Remove property
 ```php
-unset($object->sex);
-$object->remove('sex');
+unset($obj->sex);
+$obj->remove('sex');
+$obj->offsetUnset('sex');
+unset($obj['sex']);
 ```
