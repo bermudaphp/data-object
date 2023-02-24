@@ -4,7 +4,7 @@ composer require bermudaphp/data-object
 ```
 # Create
 ```php
-$object = _object(['name' => 'Sarah', 'age' => 25]);
+$object = new DataObj(['name' => 'Sarah', 'age' => 25]);
 ```
 # Get property
 ```php
