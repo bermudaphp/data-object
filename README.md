@@ -5,6 +5,13 @@ composer require bermudaphp/data-object
 # Create
 ```php
 $obj = new DataObj(['name' => 'Sarah', 'age' => 25]);
+or
+$data = new StdClass();
+
+$data->name = 'Sarah';
+$data->age = 25;
+
+$obj = new DataObj($data);
 ```
 # Get property
 ```php
