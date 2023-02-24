@@ -1,6 +1,6 @@
 <?php
 
-namespace Bermuda\DataObj;
+namespace Bermuda;
 
 use Bermuda\Arrayable;
 
@@ -10,12 +10,7 @@ use Bermuda\Arrayable;
  */
 final class DataObj implements Arrayable, \Stringable, \ArrayAccess, \IteratorAggregate
 {
-    /**
-     * @var callable|null
-     */
-    private $generator = null;
-    public readonly array $data;
-    
+    private array $data = [];
     public function __construct(iterable $data = [])
     {
         foreach ($data as $k => $value) $this->data[$k] = $value;
@@ -29,31 +24,21 @@ final class DataObj implements Arrayable, \Stringable, \ArrayAccess, \IteratorAg
     {
         return $this->toJson();
     }
-    
-    public function setIterator(?callable $setter): self
-    {
-        if ($setter) $this->generator = static function (array $data) use ($setter): \Generator {
-            foreach ($setter($data) as $k => $value) yield $k => $value ;
-        };
-        else $this->generator = null;
-        
-        return $this;
-    }
 
     /**
      * @param string $name
      * @param $value
      */
-    public function __set(string $name, $value)
+    public function __set(string $name, mixed $value): void
     {
         $this->set($name, $value);
     }
 
     /**
      * @param string $name
-     * @return mixed|null
+     * @return mixed
      */
-    public function __get(string $name)
+    public function __get(string $name): mixed
     {
         return $this->get($name);
     }
@@ -93,7 +78,7 @@ final class DataObj implements Arrayable, \Stringable, \ArrayAccess, \IteratorAg
      */
     public function remove(string $name): void
     {
-        unset($this->data[$name]);
+        $this->offsetUnset($name);
     }
 
     /**
@@ -108,9 +93,9 @@ final class DataObj implements Arrayable, \Stringable, \ArrayAccess, \IteratorAg
     /**
      * @param string $name
      */
-    public function __unset(string $name)
+    public function __unset(string $name): void 
     {
-        $this->remove($name);
+        $this->offsetUnset($name);
     }
 
     /**
@@ -136,8 +121,7 @@ final class DataObj implements Arrayable, \Stringable, \ArrayAccess, \IteratorAg
      */
     public function getIterator(): \Generator
     {
-        if (!$this->generator) foreach ($this->data as $k => $value) yield $k => $value ;
-        else return ($this->generator)($this->data);
+        foreach ($this->data as $k => $value) yield $k => $value ;
     }
 
     public function offsetExists(mixed $offset): bool
