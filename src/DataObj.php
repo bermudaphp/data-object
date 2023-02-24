@@ -11,9 +11,11 @@ use Bermuda\Arrayable;
 final class DataObj implements Arrayable, \Stringable, \ArrayAccess, \IteratorAggregate
 {
     private array $data = [];
-    public function __construct(iterable $data = [])
+    public function __construct(object|iterable $data = [])
     {
-        foreach ($data as $k => $value) $this->data[$k] = $value;
+        if (!is_iterable($data)) $this->data = get_object_vars($data);
+        elseif (is_array($data)) $this->data = $data;
+        else foreach ($data as $k => $value) $this->data[$k] = $value;
     }
 
     /**
