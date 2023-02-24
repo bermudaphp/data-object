@@ -3,13 +3,12 @@
 namespace Bermuda\DataObject;
 
 use Bermuda\Arrayble;
-use Bermuda\String\Jsonable;
 
 /**
  * Class DataObject
  * @package Bermuda\DataObject
  */
-class DataObject implements Arrayable, Jsonable, \IteratorAggregate 
+class DataObject implements Arrayable, \IteratorAggregate 
 {
     private array $attributes = [];
 
