@@ -62,7 +62,7 @@ final class DataObj implements Arrayable, \Stringable, \ArrayAccess, \IteratorAg
      */
     public function get(string $name, mixed $default = null): mixed
     {
-        return $this->offsetExists($name) ? $this->data[$name] : $default ;
+        return $this->offsetExists($name) ? $this->offsetGet($name) : $default ;
     }
 
     /**
@@ -133,7 +133,7 @@ final class DataObj implements Arrayable, \Stringable, \ArrayAccess, \IteratorAg
 
     public function offsetGet(mixed $offset): mixed
     {
-        if ($this->offsetExists($offset)) return $this->data[$offset] = new self();
+        if (!$this->offsetExists($offset)) return $this->data[$offset] = new self();
         return $this->data[$offset];
     }
 
