@@ -13,7 +13,7 @@ final class DataObj implements Arrayable, \Stringable, \ArrayAccess, \IteratorAg
     private array $data = [];
     public function __construct(object|iterable $data = [])
     {
-        if (!is_iterable($data)) $this->data = get_object_vars($data);
+        if (!is_iterable($data)) $this->data = \get_object_vars($data);
         elseif (is_array($data)) $this->data = $data;
         else foreach ($data as $k => $value) $this->data[$k] = $value;
     }
@@ -115,7 +115,7 @@ final class DataObj implements Arrayable, \Stringable, \ArrayAccess, \IteratorAg
      */
     public function toJson(int $options = 0): string
     {
-        return json_encode($this->data, $options|JSON_THROW_ON_ERROR);
+        return \json_encode($this->data, $options|JSON_THROW_ON_ERROR);
     }
 
     /**
@@ -128,7 +128,7 @@ final class DataObj implements Arrayable, \Stringable, \ArrayAccess, \IteratorAg
 
     public function offsetExists(mixed $offset): bool
     {
-        return array_key_exists($offset, $this->data);
+        return \array_key_exists($offset, $this->data);
     }
 
     public function offsetGet(mixed $offset): mixed
