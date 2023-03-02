@@ -3,11 +3,11 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Bermuda\\": "src/"
+            "Bermuda\\Stdlib\\": "src/"
         }
     },
     "require": {
-        "php": "^8.0",
-        "bermudaphp/arrayable": "^v1.0"
+        "php": "^8.0|^8.1",
+        "bermudaphp/arrayable": "^v2.0"
     }
 }
