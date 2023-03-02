@@ -1,8 +1,6 @@
 <?php
 
-namespace Bermuda;
-
-use Bermuda\Arrayable;
+namespace Bermuda\Stdlib;
 
 /**
  * Class DataObj
