@@ -8,6 +8,6 @@
     },
     "require": {
         "php": "^8.0|^8.1",
-        "bermudaphp/arrayable": "^v2.0"
+        "bermudaphp/arrayable": "^v1.0"
     }
 }
